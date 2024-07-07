@@ -1,10 +1,23 @@
-/* IndexStyle.css */
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.button {
-    width: 45%;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>らくらくプレイリスト - トップページ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/IndexStyle.css">
+</head>
+<body>
+    <header class="header">
+        <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
+    </header>
+    <div class="container content fade-in">
+        <p class="app-description">あなたの好きな曲を簡単に管理し、共有できるプレイリストアプリ</p>
+        <div class="button-container">
+            <a href="playlist" class="button"><i class="fas fa-plus"></i> 新規作成</a>
+            <a href="search" class="button"><i class="fas fa-search"></i> 既存検索</a>
+        </div>
+    </div>
+</body>
+</html>

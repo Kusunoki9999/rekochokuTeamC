@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="../css/PlaylistStyle.css">
 </head>
 <body>
-<div class="container">
+<header class="header">
     <h1>らくらくプレイリスト</h1>
+    <a href="play" class="play-button">再生</a>
+</header>
+<div class="container content">
     <form id="add-song-form">
         <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
         <button type="submit">追加</button>
@@ -17,7 +20,6 @@
     <ul id="song-list">
         <!-- 曲リストはJavaScriptで動的に追加されます -->
     </ul>
-    <a href="play" class="button">再生</a>
 </div>
 </body>
 </html>

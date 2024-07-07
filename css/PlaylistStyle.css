@@ -1,32 +1,32 @@
 /* PlaylistStyle.css */
+#add-song-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
 #add-song-form input {
-    width: 70%;
-    float: left;
+    flex-grow: 1;
 }
 
 #add-song-form button {
-    width: 28%;
-    float: right;
+    white-space: nowrap;
 }
 
 #song-list {
-    clear: both;
     list-style-type: none;
-    padding: 0;
 }
 
 #song-list li {
     background-color: white;
     margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
-.play-button {
-    background-color: #e74c3c;
-    margin-top: 20px;
-}
-
-.play-button:hover {
-    background-color: #c0392b;
+#song-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
