@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>らくらくプレイリスト - プレイリスト</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/PlaylistStyle.css">
 </head>
 <body>
 <header class="header">
-    <h1>らくらくプレイリスト</h1>
-    <a href="play" class="play-button">再生</a>
+    <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
+    <div class="header-controls">
+        <a href="play" class="icon-button"><i class="fas fa-play"></i></a>
+    </div>
 </header>
-<div class="container content">
+<div class="container content fade-in">
     <form id="add-song-form">
         <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
-        <button type="submit">追加</button>
+        <button type="submit"><i class="fas fa-plus"></i></button>
     </form>
     <ul id="song-list">
-        <!-- 曲リストはJavaScriptで動的に追加されます -->
+        <li>
+            <div class="song-info">
+                <div class="song-title">曲名</div>
+                <div class="song-artist">アーティスト名</div>
+            </div>
+            <div class="song-controls">
+                <button class="song-control-btn"><i class="fas fa-arrow-up"></i></button>
+                <button class="song-control-btn"><i class="fas fa-arrow-down"></i></button>
+                <button class="song-control-btn"><i class="fas fa-trash"></i></button>
+            </div>
+        </li>
+        <!-- 他の曲も同様に -->
     </ul>
 </div>
 </body>

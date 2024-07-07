@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>らくらくプレイリスト - 再生</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/PlayStyle.css">
 </head>
 <body>
 <header class="header">
-    <h1>らくらくプレイリスト</h1>
-    <a href="playlist" class="play-button">編集</a>
+    <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
+    <div class="header-controls">
+        <a href="playlist" class="icon-button"><i class="fas fa-edit"></i></a>
+    </div>
 </header>
-<div class="container content">
+<div class="container content fade-in">
     <div id="player">
         <!-- YouTubeプレイヤーはJavaScriptで埋め込まれます -->
     </div>
+    <div class="player-controls">
+        <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+        <button class="control-btn main-control-btn"><i class="fas fa-play"></i></button>
+        <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+    </div>
     <ul id="play-list">
-        <!-- 再生リストはJavaScriptで動的に追加されます -->
+        <li class="playing">
+            <div class="song-info">
+                <div class="song-title">現在再生中の曲</div>
+                <div class="song-artist">アーティスト名</div>
+            </div>
+        </li>
+        <!-- 他の曲も同様に -->
     </ul>
 </div>
 </body>
