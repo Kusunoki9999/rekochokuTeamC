@@ -25,12 +25,20 @@ def jsontest():
 
 @app.route('/add_song', methods=['POST'])
 def add_song():
-    data = request.json
-    playlist_id = str(data['playlist_id'])
-    song_url = data['song_url']
+    try:
+        data = request.get_json()
+        playlist_id = str(data['playlist_id'])
+        song_url = str(data['url'])
 
-    playlists = json_manager.add_song(playlist_id, song_url)
-    return jsonify(playlists)
+        # json_managerの関数を呼び出す
+        result = json_manager.add_song_to_playlist(1, song_url)
+
+        return jsonify(result)
+    except KeyError as e:
+        return jsonify({'status': 'error', 'message': f'Missing key: {e}'}), 400
+    except Exception as e:
+        app.logger.error(f'Unexpected error: {e}')
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 @app.route("/play")
 def play():

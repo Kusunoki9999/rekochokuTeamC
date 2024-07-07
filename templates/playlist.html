@@ -16,16 +16,17 @@
         <a href="play" class="icon-button"><i class="fas fa-play"></i></a>
     </div>
 </header>
-<div class="container content fade-in">
 
-<div class="container">
+<div class="container content fade-in">
     <h1>らくらくプレイリスト</h1>
     <p>{{video_title}}</p>
     <a href="play">再生</a>
-    <form id="add-song-form">
-        <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
-        <button type="submit"><i class="fas fa-plus"></i></button>
+
+    <form id="add-song-form" class="add-song-form">
+        <input type="url" id="song_url" name="url" placeholder="YouTubeのURLを入力" required>
+        <button type="submit" class="add-button"><i class="fas fa-plus"></i></button>
     </form>
+
     <ul id="song-list">
         <li>
             <div class="song-info">
@@ -41,5 +42,9 @@
         <!-- 他の曲も同様に -->
     </ul>
 </div>
+
+<!-- JavaScriptファイルを読み込む -->
+<script src="../static/js/send.js"></script>
+
 </body>
 </html>
