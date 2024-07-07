@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Manager</title>
+</head>
+<body>
+    <h1>Add Song to Playlist</h1>
+    <form id="songForm">
+        <label for="playlist_id">Playlist ID:</label>
+        <input type="text" id="playlist_id" name="playlist_id" required>
+        <br><br>
+        <label for="song_url">Song URL:</label>
+        <input type="text" id="song_url" name="song_url" required>
+        <br><br>
+        <button type="submit">Add Song</button>
+    </form>
+
+    <script>
+        document.getElementById('songForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const playlist_id = document.getElementById('playlist_id').value;
+            const song_url = document.getElementById('song_url').value;
+
+            fetch('/add_song', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ playlist_id, song_url })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
