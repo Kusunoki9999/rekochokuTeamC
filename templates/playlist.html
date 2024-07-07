@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/PlaylistStyle.css">
 </head>
 <body>
+
 <header class="header">
     <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
     <div class="header-controls">
@@ -16,6 +17,11 @@
     </div>
 </header>
 <div class="container content fade-in">
+
+<div class="container">
+    <h1>らくらくプレイリスト</h1>
+    <p>{{video_title}}</p>
+    <a href="play">再生</a>
     <form id="add-song-form">
         <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
         <button type="submit"><i class="fas fa-plus"></i></button>
