@@ -1,31 +1,25 @@
 import json
 import os
 
+# JSONファイルのパス
+json_file_path = '/id_sheet.json'
 
-JSON_FILE_PATH = os.path.join(os.path.dirname(__file__), 'id_sheet.json')
+def add_song_to_playlist(playlist_id, song_url):
+    # JSONファイルを読み込む
+    if os.path.exists(json_file_path):
+        with open(json_file_path, 'r') as f:
+            playlists = json.load(f)
+    else:
+        playlists = {"playlists": {}}
 
-# 読み込み
-def load_json():
-    with open(JSON_FILE_PATH, 'r') as file:
-            return json.load(file)
+    # プレイリストが存在する場合は曲を追加し、存在しない場合は新規作成
+    if playlist_id in playlists['playlists']:
+        playlists['playlists'][playlist_id]['songs'].append(song_url)
+    else:
+        playlists['playlists'][playlist_id] = {'songs': [song_url]}
 
-# 書き込み
-def save_json(data):
-    with open(JSON_FILE_PATH, 'w') as file:
-        json.dump(data, file, indent=4)
+    # JSONファイルに書き戻す
+    with open(json_file_path, 'w') as f:
+        json.dump(playlists, f, indent=4)
 
-def add_song(playlist_id, song_url):
-
-    playlists = load_json()
-
-    # プレイリストのチェック
-    if playlist_id not in playlists['playlists']:
-        playlists['playlists'][playlist_id] = {
-            "songs": []
-        }
-
-    # 曲の追加
-    playlists['playlists'][playlist_id]['songs'].append(song_url)
-    save_json(playlists)
-
-    return playlists
+    return {'status': 'success', 'playlist_id': playlist_id, 'url': song_url}

@@ -16,16 +16,18 @@
         <a href="play" class="icon-button"><i class="fas fa-play"></i></a>
     </div>
 </header>
-<div class="container content fade-in">
 
-<div class="container">
+<div class="container content fade-in">
     <h1>らくらくプレイリスト</h1>
     <p>{{video_title}}</p>
     <a href="play">再生</a>
-    <form id="add-song-form">
-        <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
-        <button type="submit"><i class="fas fa-plus"></i></button>
+
+    <form id="add-song-form" class="add-song-form">
+        <input type="text" id="playlist_id" name="playlist_id" placeholder="プレイリストIDを入力" required>
+        <input type="url" id="song_url" name="url" placeholder="YouTubeのURLを入力" required>
+        <button type="submit" class="add-button"><i class="fas fa-plus"></i></button>
     </form>
+
     <ul id="song-list">
         <li>
             <div class="song-info">
@@ -41,5 +43,31 @@
         <!-- 他の曲も同様に -->
     </ul>
 </div>
+
+<script>
+    document.getElementById('add-song-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const playlist_id = document.getElementById('playlist_id').value;
+        const song_url = document.getElementById('song_url').value;
+
+        fetch('/add_song', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ playlist_id, url: song_url })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Song added:', data);
+            // 曲が追加された後にリストを更新するコードをここに追加できます。
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
 </body>
 </html>
