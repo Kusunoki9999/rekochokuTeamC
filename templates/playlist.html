@@ -8,52 +8,46 @@
     <link rel="stylesheet" href="../css/PlaylistStyle.css">
 </head>
 <body>
-    <div class="container">
-        <h1>らくらくプレイリスト</h1>
-        <p>{{video_title}}</p>
-        <a href="play">再生</a>
-        <form id="songForm">
-            <label for="playlist_id">プレイリストID:</label>
-            <input type="text" id="playlist_id" name="playlist_id" required>
-            <br><br>
-            <label for="song_url">YouTubeのURLを入力:</label>
-            <input type="url" id="song_url" name="song_url" required>
-            <br><br>
-            <button type="submit">追加</button>
-        </form>
-        <ul id="song-list">
-            <!-- 曲リストはJavaScriptで動的に追加されます -->
-        </ul>
-        <a href="play" class="button">再生</a>
-    </div>
+<div class="container">
+    <h1>らくらくプレイリスト</h1>
+    <p>{{video_title}}</p>
+    <form id="add-song-form">
+        <label for="song_url">YouTubeのURLを入力:</label>
+        <input type="url" id="song_url" name="song_url" required>
+        <button type="submit">追加</button>
+    </form>
+    <ul id="song-list">
+        <!-- 曲リストはJavaScriptで動的に追加されます -->
+    </ul>
+    <a href="play" class="play-button">再生</a>
+</div>
 
-    <script>
-        document.getElementById('songForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-    
-            const playlist_id = document.getElementById('playlist_id').value;
-            const song_url = document.getElementById('song_url').value;
-    
-            fetch('/add_song', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ playlist_id, song_url })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // 動的に曲リストに追加
-                const songList = document.getElementById('song-list');
-                const li = document.createElement('li');
-                li.textContent = song_url;
-                songList.appendChild(li);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+<script>
+    document.getElementById('add-song-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const song_url = document.getElementById('song_url').value;
+
+        fetch('/add_song', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ playlist_id: '1', song_url })  // 固定のプレイリストIDを使用
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // 動的に曲リストに追加
+            const songList = document.getElementById('song-list');
+            const li = document.createElement('li');
+            li.textContent = song_url;
+            songList.appendChild(li);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
-    </script>
+    });
+</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 from flask import app, Flask, render_template, redirect, request, url_for, jsonify
 from bff import json_manager
 import json
-from googleapiclient.discovery import build
+# from googleapiclient.discovery import build
 
 app = Flask(__name__)
 
@@ -15,8 +15,8 @@ def search():
 
 @app.route("/playlist")
 def playlist():
-    video_title = get_title(video_id)
-    return render_template('playlist.html', video_title=video_title)
+    #video_title = get_title(video_id)
+    return render_template('playlist.html')
 
 
 @app.route('/add_song', methods=['POST'])
@@ -32,6 +32,7 @@ def add_song():
 def play():
     return render_template('play.html')
 
+"""
 #YouTubeAPI
 #video_idはURLから取得できるように修正
 api_key = ""
@@ -43,6 +44,7 @@ def get_title(video_id):
     response = request.execute()
     video_title = response['items'][0]['snippet']['title']
     return video_title
+"""
 
 if __name__ == "__main__":
     app.run(debug=True)
