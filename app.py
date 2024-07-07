@@ -31,7 +31,7 @@ def add_song():
         song_url = str(data['url'])
 
         # json_managerの関数を呼び出す
-        result = json_manager.add_song_to_playlist(playlist_id, song_url)
+        result = json_manager.add_song_to_playlist(1, song_url)
 
         return jsonify(result)
     except KeyError as e:

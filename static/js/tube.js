@@ -1,7 +1,7 @@
 // YouTube IFrame Player APIの準備ができたら呼ばれる関数
 function onYouTubeIframeAPIReady() {
     // JSONファイルを取得
-    fetch('../id_sheet.json')
+    fetch('../../bff/id_sheet.json')
         .then(response => response.json())
         .then(data => {
             // プレイリストからYouTube動画IDを取得
