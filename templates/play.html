@@ -3,49 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>らくらくプレイリスト - プレイリスト</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>らくらくプレイリスト - 再生</title>
     <link rel="stylesheet" href="../static/css/styles.css">
-    <link rel="stylesheet" href="../static/css/PlaylistStyle.css">
+    <link rel="stylesheet" href="../static/css/PlayStyle.css">
 </head>
 <body>
-
 <header class="header">
     <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
     <div class="header-controls">
-        <a href="play" class="icon-button"><i class="fas fa-play"></i></a>
+        <a href="playlist" class="icon-button"><i class="fas fa-edit"></i></a>
     </div>
 </header>
-
 <div class="container content fade-in">
-    <h1>らくらくプレイリスト</h1>
-    <p>{{video_title}}</p>
-    <a href="play">再生</a>
-
-    <form id="add-song-form" class="add-song-form">
-        <input type="text" id="playlist_id" name="playlist_id" placeholder="プレイリストIDを入力" required>
-        <input type="url" id="song_url" name="url" placeholder="YouTubeのURLを入力" required>
-        <button type="submit" class="add-button"><i class="fas fa-plus"></i></button>
-    </form>
-
-    <ul id="song-list">
-        <li>
+    <div class="player-controls">
+        <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+        <button class="control-btn main-control-btn"><i class="fas fa-play"></i></button>
+        <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+    </div>
+    <div id="player">
+        <!-- YouTubeプレイヤーはJavaScriptで埋め込まれます -->
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="../static/js/tube.js"></script>
+    </div>
+    <ul id="play-list">
+        <li class="playing">
             <div class="song-info">
-                <div class="song-title">曲名</div>
+                <div class="song-title">現在再生中の曲</div>
                 <div class="song-artist">アーティスト名</div>
-            </div>
-            <div class="song-controls">
-                <button class="song-control-btn"><i class="fas fa-arrow-up"></i></button>
-                <button class="song-control-btn"><i class="fas fa-arrow-down"></i></button>
-                <button class="song-control-btn"><i class="fas fa-trash"></i></button>
             </div>
         </li>
         <!-- 他の曲も同様に -->
     </ul>
 </div>
-
-<!-- JavaScriptファイルを読み込む -->
-<script src="../static/js/send.js"></script>
-
 </body>
 </html>
