@@ -1,0 +1,22 @@
+/* PlayStyle.css */
+body {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #333;
+    margin-bottom: 20px;
+}
+
+#play-list li {
+    background-color: #333;
+}
+
+.playing::before {
+    content: "▶";
+    margin-right: 10px;
+    color: #e74c3c;
+}
