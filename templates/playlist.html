@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>らくらくプレイリスト - プレイリスト</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/PlaylistStyle.css">
 </head>
 <body>
+<div class="container">
     <h1>らくらくプレイリスト</h1>
     <p>{{video_title}}</p>
     <a href="play">再生</a>
+    <form id="add-song-form">
+        <input type="url" name="url" placeholder="YouTubeのURLを入力" required>
+        <button type="submit">追加</button>
+    </form>
+    <ul id="song-list">
+        <!-- 曲リストはJavaScriptで動的に追加されます -->
+    </ul>
+    <a href="play" class="button">再生</a>
+</div>
 </body>
 </html>

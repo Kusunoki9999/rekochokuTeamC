@@ -1,4 +1,6 @@
-from flask import app, Flask, render_template, redirect, request, url_for
+from flask import app, Flask, render_template, redirect, request, url_for, jsonify
+from bff import json_manager
+import json
 from googleapiclient.discovery import build
 
 app = Flask(__name__)
@@ -15,6 +17,20 @@ def search():
 def playlist():
     video_title = get_title(video_id)
     return render_template('playlist.html', video_title=video_title)
+
+#json_managerの動作確認用
+@app.route("/jsontest")
+def jsontest():
+    return render_template('jsontest.html')
+
+@app.route('/add_song', methods=['POST'])
+def add_song():
+    data = request.json
+    playlist_id = str(data['playlist_id'])
+    song_url = data['song_url']
+
+    playlists = json_manager.add_song(playlist_id, song_url)
+    return jsonify(playlists)
 
 @app.route("/play")
 def play():
@@ -33,4 +49,4 @@ def get_title(video_id):
     return video_title
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
