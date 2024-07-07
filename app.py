@@ -30,5 +30,9 @@ def add_song():
     playlists = json_manager.add_song(playlist_id, song_url)
     return jsonify(playlists)
 
+@app.route("/play")
+def play():
+    return render_template('play.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
