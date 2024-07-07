@@ -38,7 +38,7 @@ def play():
 
 #YouTubeAPI
 #video_idはURLから取得できるように修正
-api_key = ""
+api_key = "AIzaSyBlE6mCVybHe-DhIf2hmPUxhoKK8zqk0QY"
 video_id = "-NFhRWhkp7I"
 
 def get_title(video_id):
