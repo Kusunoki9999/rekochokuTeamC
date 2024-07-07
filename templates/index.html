@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>らくらくプレイリスト - トップページ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/IndexStyle.css">
 </head>
 <body>
-<div class="container">
-    <h1>らくらくプレイリスト</h1>
-    <div class="button-container">
-        <a href="playlist" class="button">新規</a>
-        <a href="search" class="button">既存</a>
+<header class="header">
+    <h1><i class="fas fa-music"></i> らくらくプレイリスト</h1>
+    <div class="header-controls">
+        <!-- インデックスページには特別なコントロールは不要 -->
+    </div>
+</header>
+<div class="container content fade-in">
+    <div class="index-content">
+        <p class="app-description">ドライブ中に最適な、<br>あなたの音楽コレクション</p>
+        <div class="button-container">
+            <a href="playlist" class="button"><i class="fas fa-plus"></i> 新規作成</a>
+            <a href="search" class="button"><i class="fas fa-search"></i> 既存検索</a>
+        </div>
     </div>
 </div>
 </body>

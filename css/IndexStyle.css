@@ -1,10 +1,41 @@
 /* IndexStyle.css */
+.app-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: var(--text-color-secondary);
+    line-height: 1.5;
+}
+
 .button-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
 .button {
-    width: 45%;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 768px) {
+    .button-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .button {
+        width: 40%;
+    }
 }

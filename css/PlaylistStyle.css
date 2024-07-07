@@ -1,32 +1,61 @@
 /* PlaylistStyle.css */
+#add-song-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
 #add-song-form input {
-    width: 70%;
-    float: left;
+    flex-grow: 1;
 }
 
 #add-song-form button {
-    width: 28%;
-    float: right;
+    white-space: nowrap;
 }
 
 #song-list {
-    clear: both;
     list-style-type: none;
-    padding: 0;
 }
 
 #song-list li {
-    background-color: white;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    background-color: var(--surface-color);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.play-button {
-    background-color: #e74c3c;
-    margin-top: 20px;
+#song-list li:active {
+    transform: scale(0.98);
 }
 
-.play-button:hover {
-    background-color: #c0392b;
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+}
+
+.song-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.song-control-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
 }
