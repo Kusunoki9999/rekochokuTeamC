@@ -18,10 +18,6 @@ def playlist():
     video_title = get_title(video_id)
     return render_template('playlist.html', video_title=video_title)
 
-#json_managerの動作確認用
-@app.route("/jsontest")
-def jsontest():
-    return render_template('jsontest.html')
 
 @app.route('/add_song', methods=['POST'])
 def add_song():
